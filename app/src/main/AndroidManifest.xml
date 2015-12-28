@@ -18,6 +18,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ArrondissementsActivity"
+            android:label="@string/title_activity_arrondissements"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".CalendrierActivity"
+            android:label="@string/title_activity_calendrier"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
