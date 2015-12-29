@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
@@ -19,7 +21,8 @@ public class RecyclerViewFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    List<Object> mContentItems;
+    boolean test = false;
+    ItemData itemsData[];
     public static RecyclerViewFragment newInstance() {
         return new RecyclerViewFragment();
     }
@@ -40,13 +43,25 @@ public class RecyclerViewFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
 
         //100 faux contenu
-        mContentItems = new ArrayList<>();
-        for (int i = 0; i < 100; ++i)
-            mContentItems.add(new Object());
+     //   mContentItems = new ArrayList<>();
 
-        //penser à passer notre Adapter (ici : TestRecyclerViewAdapter) à un RecyclerViewMaterialAdapter
-        mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems));
-        mRecyclerView.setAdapter(mAdapter);
+       // for (int i = 0; i < 2; ++i)
+       //     mContentItems.add(new Object());
+        boolean test=getBoolean();
+        Log.d("Mytag","test"+test);
+        if(test==false) {
+            ItemData itemsData[] = {new ItemData("Help", R.drawable.earth),
+                    new ItemData("Delete", R.drawable.light),
+                    new ItemData("Cloud", R.drawable.tennis),
+                    new ItemData("Favorite", R.drawable.ticket),
+                    new ItemData("Like", R.drawable.ic_menu_arrond),
+                    new ItemData("Rating", R.drawable.paris_android)};
+
+
+            //penser à passer notre Adapter (ici : TestRecyclerViewAdapter) à un RecyclerViewMaterialAdapter
+            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(itemsData));
+            mRecyclerView.setAdapter(mAdapter);
+        }
 
 
         //notifier le MaterialViewPager qu'on va utiliser une RecyclerView
@@ -54,6 +69,15 @@ public class RecyclerViewFragment extends Fragment {
     }
 
     public int ArraySize(){
-        return mContentItems.size();
+
+        return itemsData.length;
+    }
+
+    public void setBoolean(boolean testt){
+        this.test=testt;
+
+    }
+    public boolean getBoolean(){
+        return test;
     }
 }

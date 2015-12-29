@@ -53,16 +53,6 @@ public class ArrondissementsActivity extends AppCompatActivity
             }
         });
 
-        //Bar de navigation
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
 
         //Création du content du "Material View"
 
@@ -75,12 +65,27 @@ public class ArrondissementsActivity extends AppCompatActivity
         //le MaterialViewPager
         this.materialViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
 
+        //Bar de navigation
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, this.materialViewPager.getToolbar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
         //remplir le ViewPager
         this.materialViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
                 //je créé pour chaque onglet un RecyclerViewFragment
+
+
                 return RecyclerViewFragment.newInstance();
             }
 
@@ -116,81 +121,93 @@ public class ArrondissementsActivity extends AppCompatActivity
             }
 
 
+            int oldItemPosition = -1;
 
-        int oldItemPosition = -1;
-        @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
-            super.setPrimaryItem(container, position, object);
 
-            //seulement si la page est différente
-            if (oldItemPosition != position) {
-                oldItemPosition = position;
+            @Override
+            public void setPrimaryItem(ViewGroup container, int position, Object object) {
+                super.setPrimaryItem(container, position, object);
 
-                //définir la nouvelle couleur et les nouvelles images
-                String imageUrl = null;
-                int color = Color.BLACK;
-                Drawable newDrawable = null;
+                //seulement si la page est différente
+                if (oldItemPosition != position) {
+                    oldItemPosition = position;
 
-                switch (position) {
-                    case 0:
-                        imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/statue-jardin-les-halles-150x150.png";
-                        color = getResources().getColor(R.color.blue);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
-                    case 1:
-                       imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/passage-grand-cerf-150x150.png";
-                        color = getResources().getColor(R.color.orange);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
-                    case 2:
-                        imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/10/piazza-beaucourg-156-saint-martin-150x150.png";
-                        color = getResources().getColor(R.color.cyan);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
-                    case 3:
-                        imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
-                        color = getResources().getColor(R.color.green);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
-                    case 4:
-                        imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
-                        color = getResources().getColor(R.color.green);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
-                    case 5:
-                        imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
-                        color = getResources().getColor(R.color.green);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
-                    case 6:
-                        imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
-                        color = getResources().getColor(R.color.green);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
-                    case 7:
-                        imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
-                        color = getResources().getColor(R.color.green);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
-                    case 8:
-                        imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
-                        color = getResources().getColor(R.color.green);
-                        newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
-                        break;
+                    //définir la nouvelle couleur et les nouvelles images
+                    String imageUrl = null;
+                    int color = Color.BLACK;
+                    Drawable newDrawable = null;
+
+                    switch (position) {
+                        case 0:
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/statue-jardin-les-halles-150x150.png";
+                            color = getResources().getColor(R.color.blue);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+
+
+                            //  Toast.makeText(getApplicationContext(), "test" + frag.ArraySize(), Toast.LENGTH_LONG).show();
+
+
+                            break;
+                        case 1:
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/passage-grand-cerf-150x150.png";
+                            color = getResources().getColor(R.color.orange);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+
+                            break;
+                        case 2:
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/10/piazza-beaucourg-156-saint-martin-150x150.png";
+                            color = getResources().getColor(R.color.cyan);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 3:
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 4:
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 5:
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 6:
+
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 7:
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 8:
+                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                    }
+
+                    //puis modifier les images/couleurs
+                    int fadeDuration = 400;
+                    materialViewPager.setColor(color, fadeDuration);
+                    materialViewPager.setImageUrl(imageUrl, fadeDuration);
+                    toggleLogo(newDrawable, color, fadeDuration);
+
                 }
-
-                //puis modifier les images/couleurs
-                int fadeDuration = 400;
-                materialViewPager.setColor(color, fadeDuration);
-                materialViewPager.setImageUrl(imageUrl, fadeDuration);
-                toggleLogo(newDrawable,color,fadeDuration);
-
             }
-        }
-    });
+        });
+
 
     //relie les tabs au viewpager
     this.materialViewPager.getPagerTitleStrip().setViewPager(this.materialViewPager.getViewPager());
+//        Toast.makeText(getApplicationContext(), "test" + this.materialViewPager.getViewPager().getCurrentObject(RecyclerViewFragment), Toast.LENGTH_LONG).show();
+
 }
 
     private void toggleLogo(final Drawable newLogo, final int newColor, int duration){
@@ -245,7 +262,7 @@ public class ArrondissementsActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -270,23 +287,25 @@ public class ArrondissementsActivity extends AppCompatActivity
         // Menu de navigation selon la selection de l'item nous allons sur l'activity
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
-            // Handle the camera action
+        if (id == R.id.nav_accueil) {
+            //Accueil
             intent= new Intent(this,MainActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_arrondissements) {
+            //Arrondissements
             intent= new Intent(this,ArrondissementsActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_calendrier) {
+            //calendrier
             intent= new Intent(this,CalendrierActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_partage) {
 
-        } else if (id == R.id.nav_send) {
+
+        } else if (id == R.id.nav_contact) {
 
         }
 
