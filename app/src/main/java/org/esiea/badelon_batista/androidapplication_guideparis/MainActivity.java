@@ -18,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Intent intent;
@@ -54,7 +56,9 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         TextView myTextView = (TextView) findViewById(R.id.textView4);
-        myTextView.setText(Html.fromHtml("<p><center>Votre nouveau guide </center></p><p><center>Cette application vous permettra de découvrir Paris sous un nouvel angle. Bien loin  des guides touristiques traditionnels, Paris Insolite a pour vocation de faire découvrir aux parisiens et aux touristes les endroits les plus insolites et les plus merveilleux de la capitale.</center></p>"));
+       // if(Locale.getDefault().getLanguage()=="fr")
+        myTextView.setText(Html.fromHtml(getString(R.string.texthtmlaccueil)));
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -113,6 +117,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_partage) {
+            //partage bouton
+            intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.text_partage));
+            startActivity(Intent.createChooser(intent,"Share"));
+
+
 
 
         } else if (id == R.id.nav_contact) {

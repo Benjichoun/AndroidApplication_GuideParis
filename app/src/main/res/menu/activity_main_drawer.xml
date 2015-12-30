@@ -3,19 +3,19 @@
 
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_accueil" android:icon="@drawable/ic_menu_eiffel"
-            android:title="Accueil" />
+            android:title="@string/title_activity_accueil" />
         <item android:id="@+id/nav_arrondissements" android:icon="@drawable/ic_menu_arrond"
-            android:title="Arrondissements" />
+            android:title="@string/title_activity_arrondissements" />
         <item android:id="@+id/nav_calendrier" android:icon="@android:drawable/ic_menu_my_calendar"
-            android:title="Calendrier" />
+            android:title="@string/title_activity_calendrier" />
     </group>
 
     <item android:title="Contact">
         <menu>
             <item android:id="@+id/nav_partage" android:icon="@android:drawable/ic_menu_share"
-                android:title="Partager" />
+                android:title="@string/title_activity_partage" />
             <item android:id="@+id/nav_contact" android:icon="@android:drawable/ic_menu_send"
-                android:title="Informations" />
+                android:title="@string/title_activity_contact" />
         </menu>
     </item>
 

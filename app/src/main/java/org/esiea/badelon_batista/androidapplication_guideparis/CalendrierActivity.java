@@ -99,6 +99,14 @@ public class CalendrierActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_partage) {
+            //partage bouton
+            intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.text_partage));
+            startActivity(Intent.createChooser(intent,"Share"));
+
+
 
 
         } else if (id == R.id.nav_contact) {

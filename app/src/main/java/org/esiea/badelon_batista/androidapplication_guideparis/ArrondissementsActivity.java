@@ -133,13 +133,13 @@ public class ArrondissementsActivity extends AppCompatActivity
                     oldItemPosition = position;
 
                     //définir la nouvelle couleur et les nouvelles images
-                    String imageUrl = null;
+                    Drawable imageUrl = null;
                     int color = Color.BLACK;
                     Drawable newDrawable = null;
 
                     switch (position) {
                         case 0:
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/statue-jardin-les-halles-150x150.png";
+                            imageUrl = getResources().getDrawable(R.drawable.arr1);
                             color = getResources().getColor(R.color.blue);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
 
@@ -149,45 +149,44 @@ public class ArrondissementsActivity extends AppCompatActivity
 
                             break;
                         case 1:
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/passage-grand-cerf-150x150.png";
+                            imageUrl = getResources().getDrawable(R.drawable.arr2);
                             color = getResources().getColor(R.color.orange);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
 
                             break;
                         case 2:
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/10/piazza-beaucourg-156-saint-martin-150x150.png";
+                            imageUrl = getResources().getDrawable(R.drawable.arr3);
                             color = getResources().getColor(R.color.cyan);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 3:
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
-
+                            imageUrl = getResources().getDrawable(R.drawable.arr4);
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 4:
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            imageUrl = getResources().getDrawable(R.drawable.arr5);
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 5:
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            imageUrl = getResources().getDrawable(R.drawable.arr6);
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 6:
 
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                           // imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 7:
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                          //  imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 8:
-                            imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                         //   imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
@@ -196,8 +195,8 @@ public class ArrondissementsActivity extends AppCompatActivity
                     //puis modifier les images/couleurs
                     int fadeDuration = 400;
                     materialViewPager.setColor(color, fadeDuration);
-                    materialViewPager.setImageUrl(imageUrl, fadeDuration);
-                    toggleLogo(newDrawable, color, fadeDuration);
+                    materialViewPager.setImageDrawable(imageUrl, fadeDuration);
+                   // toggleLogo(newDrawable, color, fadeDuration);
 
                 }
             }
@@ -303,6 +302,12 @@ public class ArrondissementsActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_partage) {
+            //partage bouton
+            intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.text_partage));
+            startActivity(Intent.createChooser(intent, "Share"));
 
 
         } else if (id == R.id.nav_contact) {

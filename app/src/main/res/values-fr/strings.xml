@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Guide Paris Insolite</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_arrondissements">Arrondissements</string>
+    <string name="title_activity_calendrier">Calendrier</string>
+    <string name="title_activity_accueil">Accueil</string>
+    <string name="title_activity_contact">Informations</string>
+    <string name="title_activity_partage">Partage</string>
+
+    <string name="arrondissements1">1er Arr.</string>
+    <string name="arrondissements2">2e Arr.</string>
+    <string name="arrondissements3">3e Arr.</string>
+    <string name="arrondissements4">4e Arr.</string>
+    <string name="arrondissements5">5e Arr.</string>
+    <string name="arrondissements6">6e Arr.</string>
+    <string name="arrondissements7">7e Arr.</string>
+    <string name="arrondissements8">8e Arr.</string>
+
+    <string name="navigation_drawer_open">Ouvrir la bar de navigation</string>
+    <string name="navigation_drawer_close">Fermer la bar de navigation</string>
+    <string name="TexteAccueil">Bonjour</string>
+
+    <item name="textViewName" type="id">Test</item>
+    <string name="textView3">Bienvenue sur notre Application</string>
+    <string name="text_partage">Je viens juste de trouver une super app pour découvrir Paris sous un nouvel angle! Télécharge la ici : LINK</string>
+    <string name="texthtmlaccueil"><![CDATA[<p><center>Votre nouveau guide </center></p><p><center>Cette application vous permettra de découvrir Paris sous un nouvel angle. Bien loin  des guides touristiques traditionnels, Paris Insolite a pour vocation de faire découvrir aux parisiens et aux touristes les endroits les plus insolites et les plus merveilleux de la capitale.</center></p>]]></string>
+</resources>
