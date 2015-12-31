@@ -7,19 +7,19 @@
     <string name="title_activity_contact">Informations</string>
     <string name="title_activity_partage">Share</string>
 
-    <string name="arrondissements1">1er Bor.</string>
-    <string name="arrondissements2">2e Bor.</string>
-    <string name="arrondissements3">3e Bor.</string>
-    <string name="arrondissements4">4e Bor.</string>
-    <string name="arrondissements5">5e Bor.</string>
-    <string name="arrondissements6">6e Bor.</string>
-    <string name="arrondissements7">7e Bor.</string>
-    <string name="arrondissements8">8e Bor.</string>
-    <string name="arrondissements9">9e Bor.</string>
-    <string name="arrondissements10">10e Bor.</string>
-    <string name="arrondissements11">11e Bor.</string>
-    <string name="arrondissements12">12e Bor.</string>
-    <string name="arrondissements13">13e Bor.</string>
+    <string name="arrondissements1">1st Bor.</string>
+    <string name="arrondissements2">2nd Bor.</string>
+    <string name="arrondissements3">3rd Bor.</string>
+    <string name="arrondissements4">4th Bor.</string>
+    <string name="arrondissements5">5th Bor.</string>
+    <string name="arrondissements6">6th Bor.</string>
+    <string name="arrondissements7">7th Bor.</string>
+    <string name="arrondissements8">8th Bor.</string>
+    <string name="arrondissements9">9th Bor.</string>
+    <string name="arrondissements10">10th Bor.</string>
+    <string name="arrondissements11">11th Bor.</string>
+    <string name="arrondissements12">12th Bor.</string>
+    <string name="arrondissements13">13th Bor.</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -28,7 +28,9 @@
     <item name="textViewName" type="id">Test</item>
     <string name="textView3">Welcome to our Application</string>
     <string name="text_partage">Just found this great app to discover Paris in a new way ! Find it here: LINK</string>
-    <string name="texthtmlaccueil"><![CDATA[<p><center>Your new good guide </center></p><p><center>This application will help you discover Paris in a new way.It\s not like a tourist guide, blablablablalbla</center></p>></string>]]></string>
+    <string name="texthtmlaccueil"><![CDATA[<br></br><p><center>Your new guide of the city of lights </center></p><p><center>This application will help you to discover Paris in a new way. You will see an unusual and wonderful city far away from the traditional guide.</center></p></string>]]></string>
+    <string name="title_activity_information">InformationActivity</string>
+    <string name="texthtmlinfo"><![CDATA[<br></br><p><center>Application created for a school project (ESIEA) by :</center></p><p><center>Benjamin Batista : batista@et.esiea.fr</center></p><p><center>and</center></p><p><center>Mathilde Badelon : badelon@et.esiea.fr</center></p></string>]]></string>
 
 
 

@@ -29,6 +29,7 @@
     <string name="textView3">Bienvenue sur notre Application</string>
     <string name="text_partage">Je viens juste de trouver une super app pour découvrir Paris sous un nouvel angle! Télécharge la ici : LINK</string>
     <string name="texthtmlaccueil"><![CDATA[<p><center>Votre nouveau guide </center></p><p><center>Cette application vous permettra de découvrir Paris sous un nouvel angle. Bien loin  des guides touristiques traditionnels, Paris Insolite a pour vocation de faire découvrir aux parisiens et aux touristes les endroits les plus insolites et les plus merveilleux de la capitale.</center></p>]]></string>
+    <string name="texthtmlinfo"><![CDATA[<br></br><p><center>Application créée pour un projet scolaire (ESIEA) et réalisée par :</center></p><p><center>Benjamin Batista : batista@et.esiea.fr</center></p><p><center>et</center></p><p><center>Mathilde Badelon : badelon@et.esiea.fr</center></p></string>]]></string>
 
 
 </resources>
