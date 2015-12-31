@@ -5,21 +5,27 @@ public class ItemData {
 
 
     private String title;
-    private int imageUrl;
+    private String imageUrl;
+    private String descr;
 
-    public ItemData(String title,int imageUrl){
+    public ItemData(String title,String imageUrl,String description){
 
         this.title = title;
         this.imageUrl = imageUrl;
+        this.descr = description;
     }
     // getters & setters
     public String getTitle(){
         return title;
     }
 
-    public int getImageUrl(){
+    public String getImageUrl(){
         return imageUrl;
 
 
+    }
+
+    public String getDescr() {
+        return descr;
     }
 }

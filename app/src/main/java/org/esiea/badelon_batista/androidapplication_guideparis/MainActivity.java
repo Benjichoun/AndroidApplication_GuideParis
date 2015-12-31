@@ -32,23 +32,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        notif =  new Notification.Builder(this)
-                .setContentTitle("New mail from " + "test@gmail.com")
-                .setContentText("Subject")
-                .setSmallIcon(R.drawable.earth)
-                .setContentIntent(pintent)
-                .setAutoCancel(true)
-                .addAction(R.drawable.earth, "Call",pintent )
-                .addAction(R.drawable.earth, "More", pintent)
-                .addAction(R.drawable.earth, "And more", pintent).build();
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NotificationManager notificationManager=(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                notificationManager.notify(0,notif);
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

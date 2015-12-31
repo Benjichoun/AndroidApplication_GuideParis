@@ -15,6 +15,11 @@
     <string name="arrondissements6">6e Arr.</string>
     <string name="arrondissements7">7e Arr.</string>
     <string name="arrondissements8">8e Arr.</string>
+    <string name="arrondissements9">9e Arr.</string>
+    <string name="arrondissements10">10e Arr.</string>
+    <string name="arrondissements11">11e Arr.</string>
+    <string name="arrondissements12">12e Arr.</string>
+    <string name="arrondissements13">13e Arr.</string>
 
     <string name="navigation_drawer_open">Ouvrir la bar de navigation</string>
     <string name="navigation_drawer_close">Fermer la bar de navigation</string>
@@ -24,4 +29,6 @@
     <string name="textView3">Bienvenue sur notre Application</string>
     <string name="text_partage">Je viens juste de trouver une super app pour découvrir Paris sous un nouvel angle! Télécharge la ici : LINK</string>
     <string name="texthtmlaccueil"><![CDATA[<p><center>Votre nouveau guide </center></p><p><center>Cette application vous permettra de découvrir Paris sous un nouvel angle. Bien loin  des guides touristiques traditionnels, Paris Insolite a pour vocation de faire découvrir aux parisiens et aux touristes les endroits les plus insolites et les plus merveilleux de la capitale.</center></p>]]></string>
+
+
 </resources>

@@ -15,6 +15,11 @@
     <string name="arrondissements6">6e Bor.</string>
     <string name="arrondissements7">7e Bor.</string>
     <string name="arrondissements8">8e Bor.</string>
+    <string name="arrondissements9">9e Bor.</string>
+    <string name="arrondissements10">10e Bor.</string>
+    <string name="arrondissements11">11e Bor.</string>
+    <string name="arrondissements12">12e Bor.</string>
+    <string name="arrondissements13">13e Bor.</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -24,5 +29,7 @@
     <string name="textView3">Welcome to our Application</string>
     <string name="text_partage">Just found this great app to discover Paris in a new way ! Find it here: LINK</string>
     <string name="texthtmlaccueil"><![CDATA[<p><center>Your new good guide </center></p><p><center>This application will help you discover Paris in a new way.It\s not like a tourist guide, blablablablalbla</center></p>></string>]]></string>
+
+
 
 </resources>

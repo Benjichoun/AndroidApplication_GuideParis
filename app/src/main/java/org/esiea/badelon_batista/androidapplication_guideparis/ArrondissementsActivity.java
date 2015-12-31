@@ -4,21 +4,24 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +29,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class ArrondissementsActivity extends AppCompatActivity
@@ -35,28 +46,23 @@ public class ArrondissementsActivity extends AppCompatActivity
     MaterialViewPager materialViewPager; //Init de la materialview sur notre activity
     View headerLogo;//Init de l'en-tête de la materialView
     ImageView headerLogoContent;//Init du logo sur l'en-tête
+    String urlString;
+
+    public static final String ARRINFO_UPDATE = "ARRINFO_UPDATE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_arrondissements);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Action du bouton "mail/contact" à supp?
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
+        //Création du MaterialView
 
-        //Création du content du "Material View"
-
-        final int tabCount = 8; //Nombre d'onglet
+        final int tabCount = 13; //Nombre de page
 
         //les vues définies dans @layout/header_logo
         headerLogo = findViewById(R.id.headerLogo);
@@ -78,15 +84,68 @@ public class ArrondissementsActivity extends AppCompatActivity
 
 
 
+
         //remplir le ViewPager
         this.materialViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
-                //je créé pour chaque onglet un RecyclerViewFragment
+
+        //On definie l'adresse pour chaque cas
+                switch (position) {
+                    case 0:
+                        urlString = "http://projetblogdevoyage.free.fr/web/arr1.json";
+
+                        return new RecyclerViewFragment();
+                    case 1:
+                        urlString = "http://projetblogdevoyage.free.fr/web/arr2.json";
+                        return new RecyclerViewFragment();
+                    case 2:
+                        urlString = "null";
+
+                        return new RecyclerViewFragment();
+                    case 3:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
+                    case 4:
+                        urlString = "null";
+
+                        return new RecyclerViewFragment();
+                    case 5:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
+                    case 6:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
+                    case 7:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
+                    case 8:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
+                    case 9:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
+                    case 10:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
+                    case 11:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
+                    case 12:
+                        urlString = "null";
+                        return new RecyclerViewFragment();
 
 
-                return RecyclerViewFragment.newInstance();
+                    default:
+                        urlString = "null";
+
+                        return new RecyclerViewFragment();
+
+
+                }
+
+
             }
 
             @Override
@@ -97,6 +156,7 @@ public class ArrondissementsActivity extends AppCompatActivity
             //le titre à afficher pour chaque page
             @Override
             public CharSequence getPageTitle(int position) {
+
                 switch (position) {
 
                     case 0:
@@ -115,6 +175,16 @@ public class ArrondissementsActivity extends AppCompatActivity
                         return getResources().getString(R.string.arrondissements7);
                     case 7:
                         return getResources().getString(R.string.arrondissements8);
+                    case 8:
+                        return getResources().getString(R.string.arrondissements9);
+                    case 9:
+                        return getResources().getString(R.string.arrondissements10);
+                    case 10:
+                        return getResources().getString(R.string.arrondissements11);
+                    case 11:
+                        return getResources().getString(R.string.arrondissements12);
+                    case 12:
+                        return getResources().getString(R.string.arrondissements13);
                     default:
                         return "Page " + position;
                 }
@@ -123,7 +193,7 @@ public class ArrondissementsActivity extends AppCompatActivity
 
             int oldItemPosition = -1;
 
-
+        //Definir les images du haut de page
             @Override
             public void setPrimaryItem(ViewGroup container, int position, Object object) {
                 super.setPrimaryItem(container, position, object);
@@ -139,16 +209,15 @@ public class ArrondissementsActivity extends AppCompatActivity
 
                     switch (position) {
                         case 0:
+
                             imageUrl = getResources().getDrawable(R.drawable.arr1);
                             color = getResources().getColor(R.color.blue);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
 
 
-                            //  Toast.makeText(getApplicationContext(), "test" + frag.ArraySize(), Toast.LENGTH_LONG).show();
-
-
                             break;
                         case 1:
+
                             imageUrl = getResources().getDrawable(R.drawable.arr2);
                             color = getResources().getColor(R.color.orange);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
@@ -175,28 +244,50 @@ public class ArrondissementsActivity extends AppCompatActivity
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 6:
-
-                           // imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            imageUrl = getResources().getDrawable(R.drawable.arr7);
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 7:
-                          //  imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            imageUrl = getResources().getDrawable(R.drawable.arr8);
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                         case 8:
-                         //   imageUrl = "http://www.paris-en-photos.fr/wp-content/uploads/2008/07/elephant-fontaine-niki-st-phalle-150x150.png";
+                            imageUrl = getResources().getDrawable(R.drawable.arr9);
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 9:
+                            imageUrl = getResources().getDrawable(R.drawable.arr10);
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 10:
+                            imageUrl = getResources().getDrawable(R.drawable.arr11);
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 11:
+                            imageUrl = getResources().getDrawable(R.drawable.arr12);
+                            color = getResources().getColor(R.color.green);
+                            newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
+                            break;
+                        case 12:
+                            imageUrl = getResources().getDrawable(R.drawable.arr13);
                             color = getResources().getColor(R.color.green);
                             newDrawable = getResources().getDrawable(R.drawable.ic_menu_arrond);
                             break;
                     }
 
+
+
+
                     //puis modifier les images/couleurs
                     int fadeDuration = 400;
                     materialViewPager.setColor(color, fadeDuration);
                     materialViewPager.setImageDrawable(imageUrl, fadeDuration);
-                   // toggleLogo(newDrawable, color, fadeDuration);
+                    toggleLogo(newDrawable, color, fadeDuration);
 
                 }
             }
@@ -205,7 +296,6 @@ public class ArrondissementsActivity extends AppCompatActivity
 
     //relie les tabs au viewpager
     this.materialViewPager.getPagerTitleStrip().setViewPager(this.materialViewPager.getViewPager());
-//        Toast.makeText(getApplicationContext(), "test" + this.materialViewPager.getViewPager().getCurrentObject(RecyclerViewFragment), Toast.LENGTH_LONG).show();
 
 }
 
@@ -318,6 +408,9 @@ public class ArrondissementsActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 
 
 }

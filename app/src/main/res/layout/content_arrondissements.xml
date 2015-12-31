@@ -10,7 +10,7 @@
 
     <com.github.florent37.materialviewpager.MaterialViewPager
         android:id="@+id/materialViewPager"
-        app:viewpager_color="@color/colorPrimary"
+        app:viewpager_color="#ffffff"
         app:viewpager_enableToolbarElevation="true"
         app:viewpager_headerAlpha="0.6"
         app:viewpager_headerHeight="200dp"
