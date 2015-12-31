@@ -31,7 +31,7 @@
     <string name="texthtmlaccueil"><![CDATA[<br></br><p><center>Your new guide of the city of lights </center></p><p><center>This application will help you to discover Paris in a new way. You will see an unusual and wonderful city far away from the traditional guide.</center></p></string>]]></string>
     <string name="title_activity_information">InformationActivity</string>
     <string name="texthtmlinfo"><![CDATA[<br></br><p><center>Application created for a school project (ESIEA) by :</center></p><p><center>Benjamin Batista : batista@et.esiea.fr</center></p><p><center>and</center></p><p><center>Mathilde Badelon : badelon@et.esiea.fr</center></p></string>]]></string>
-
+    <string name="texthtmlcal"><![CDATA[<br></br><p><center></center></p><p><center>Plannification of events in process</center></p></string>]]></string>
 
 
 </resources>

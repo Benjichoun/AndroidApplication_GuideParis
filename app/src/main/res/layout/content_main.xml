@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_main2"
-    tools:context="org.esiea.badelon_batista.androidapplication_guideparis.Main2Activity"
+
+    tools:context="org.esiea.badelon_batista.androidapplication_guideparis.MainActivity"
     android:background="#c7c3c3"
     >
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
